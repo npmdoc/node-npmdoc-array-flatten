@@ -1,0 +1,206 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/blakeembrey/array-flatten"
+
+    >array-flatten (v2.1.1)</a>
+</h1>
+<h4>Flatten nested arrays</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.array-flatten">module array-flatten</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.array-flatten.depth">
+            function <span class="apidocSignatureSpan">array-flatten.</span>depth
+            <span class="apidocSignatureSpan">(array, depth)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.array-flatten.from">
+            function <span class="apidocSignatureSpan">array-flatten.</span>from
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.array-flatten.fromDepth">
+            function <span class="apidocSignatureSpan">array-flatten.</span>fromDepth
+            <span class="apidocSignatureSpan">(array, depth)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.array-flatten" id="apidoc.module.array-flatten">module array-flatten</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.array-flatten.depth" id="apidoc.element.array-flatten.depth">
+        function <span class="apidocSignatureSpan">array-flatten.</span>depth
+        <span class="apidocSignatureSpan">(array, depth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flattenDepth(array, depth) {
+  if (!Array.isArray(array)) {
+    throw new TypeError(&#x27;Expected value to be an array&#x27;)
+  }
+
+  return flattenFromDepth(array, depth)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var flatten = require(&#x27;array-flatten&#x27;)
+
+flatten([1, [2, [3, [4, [5], 6], 7], 8], 9])
+//=&#x3e; [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+flatten.<span class="apidocCodeKeywordSpan">depth</span>([1, [2, [3, [4, [5], 6], 7], 8], 9], 2)
+//=&#x3e; [1, 2, 3, [4, [5], 6], 7, 8, 9]
+
+(function () {
+  flatten.from(arguments) //=&#x3e; [1, 2, 3]
+})(1, [2, 3])
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.array-flatten.from" id="apidoc.element.array-flatten.from">
+        function <span class="apidocSignatureSpan">array-flatten.</span>from
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flattenFrom(array) {
+  return flattenDown(array, [])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+flatten([1, [2, [3, [4, [5], 6], 7], 8], 9])
+//=&#x3e; [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+flatten.depth([1, [2, [3, [4, [5], 6], 7], 8], 9], 2)
+//=&#x3e; [1, 2, 3, [4, [5], 6], 7, 8, 9]
+
+(function () {
+  flatten.<span class="apidocCodeKeywordSpan">from</span>(arguments) //=&#x3e; [1, 2, 3]
+})(1, [2, 3])
+```
+
+### Methods
+
+* **flatten(array)** Flatten a nested array structure
+* **flatten.from(arrayish)** Flatten an array-like structure (E.g. arguments)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.array-flatten.fromDepth" id="apidoc.element.array-flatten.fromDepth">
+        function <span class="apidocSignatureSpan">array-flatten.</span>fromDepth
+        <span class="apidocSignatureSpan">(array, depth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flattenFromDepth(array, depth) {
+  if (typeof depth !== &#x27;number&#x27;) {
+    throw new TypeError(&#x27;Expected the depth to be a number&#x27;)
+  }
+
+  return flattenDownDepth(array, [], depth)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### Methods
+
+* **flatten(array)** Flatten a nested array structure
+* **flatten.from(arrayish)** Flatten an array-like structure (E.g. arguments)
+* **flatten.depth(array, depth)** Flatten a nested array structure with a specific depth
+* **flatten.<span class="apidocCodeKeywordSpan">fromDepth</span>(arrayish, depth)** Flatten an array-like structure with a specific
+ depth
+
+## License
+
+MIT
+
+[npm-image]: https://img.shields.io/npm/v/array-flatten.svg?style=flat
+[npm-url]: https://npmjs.org/package/array-flatten
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
