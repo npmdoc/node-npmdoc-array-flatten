@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.array-flatten.array-flatten">
+            function <span class="apidocSignatureSpan"></span>array-flatten
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.array-flatten.depth">
             function <span class="apidocSignatureSpan">array-flatten.</span>depth
             <span class="apidocSignatureSpan">(array, depth)</span>
@@ -94,6 +103,25 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.array-flatten" id="apidoc.module.array-flatten">module array-flatten</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.array-flatten.array-flatten" id="apidoc.element.array-flatten.array-flatten">
+        function <span class="apidocSignatureSpan"></span>array-flatten
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flatten(array) {
+  if (!Array.isArray(array)) {
+    throw new TypeError(&#x27;Expected value to be an array&#x27;)
+  }
+
+  return flattenFrom(array)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
